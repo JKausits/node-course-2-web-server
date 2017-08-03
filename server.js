@@ -28,9 +28,6 @@ app.use((req, res, next)=>{
   next();
 });
 
-// app.use((req, res, next)=>{
-//   res.render('maintenance.hbs')
-// });
 app.use(express.static(__dirname + '/public'));
 
 // ROUTES
@@ -52,6 +49,12 @@ app.get('/bad', (req, res)=>{
     errorMessage: 'You fucking idot'
   })
 });
+
+app.get('/portfolio', (req, res)=>{
+  res.render('portfolio.hbs',{
+    pageTitle: 'portfolio Page'
+  });
+})
 
 // Starting server
 app.listen(port,()=>{
